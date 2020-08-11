@@ -1,0 +1,139 @@
+<link href="https://fonts.googleapis.com/css2?family=Lakki+Reddy&display=swap" rel="stylesheet"> 
+<!-- <mat-grid-list cols="4" rowHeight="70px">
+
+  <mat-grid-tile rowspan="6" colspan="2" style="background-color:Gainsboro; align-items: center; background-image: url(https://englishclassesbyskype.files.wordpress.com/2014/07/handshake-stockimages.jpg); background-repeat: no-repeat; background-size: cover;background-position: center;">
+
+ <div class="position-absolute bottom-center"> 
+                <button   (click)=onsup() type="button" class="btn btn-primary" style="border-radius: 5em; top: 140px;position: relative;bottom: 0px;">New Sign Up</button> 
+            </div> 
+
+  </mat-grid-tile>
+
+  <mat-grid-tile rowspan="4.5" colspan="2" style="background-color:Gainsboro; overflow-y: scroll; height: auto;" >
+    
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th colspan="3" class="text-center">Upcoming Trainings</th>
+          </tr>
+        </thead>
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Title</th>
+            <th scope="col">Schedule</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let training of TrainingList;let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{training.title}}</td>
+            <td>{{training.startDate | date}} - {{training.endDate | date}}</td>
+          </tr>
+        </tbody>
+      </table>
+        </mat-grid-tile>
+
+        <mat-grid-tile rowspan="3" colspan="2" style="background-color:Gainsboro;">
+          <table class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th colspan="7" class="text-center">Active Courses</th>
+              </tr>
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Title</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Description</th>
+                <th scope="col">PreRequisites</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let course of cards;let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{course.title}}</td>
+                <td>{{course.duration}}</td>
+                <td>{{course.description}}</td>
+                <td>{{course.preRequisites}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-grid-tile>
+
+        <mat-grid-tile rowspan="3" colspan="4" style="background-color:Gainsboro; align-items: center; background-image: url(https://www.elsetge.cat/myimg/f/15-153902_mountain-fondos-de-pantalla-para-pc-4k.jpg); background-repeat: no-repeat; background-size: cover;background-position: center;" >
+          <div class="position-absolute bottom-center"> 
+            <button   (click)=onrep() type="button" class="btn btn-warning" style="border-radius: 5em; position: relative;">Report</button> 
+        </div> 
+        </mat-grid-tile>
+
+
+</mat-grid-list> -->
+
+<div class="wrapper">
+	<div class="first" style="background-image: url(https://englishclassesbyskype.files.wordpress.com/2014/07/handshake-stockimages.jpg); background-repeat: no-repeat; background-size: cover;">
+    <div style="background-color: white; opacity: 0.5; height: 48%;">
+    </div>
+    <div style="position: relative; top: -48%;">
+    <h1 style="  font-size: 2.6em; font-family:'Times New Roman', Times, serif; font-weight: bolder; display: inline;" > Virtusa :</h1> 
+      <span style="font-size: 1.6em; font-weight: 900; font-family: 'Times New Roman', Times, serif;"> Sparking innovation,  one sprint at a time.</span>
+      <hr style="height:2px;border-width:0;color:black;background-color:black">
+      <p class="lead" style="font-size: 1.5em;">Inside every Virtusan is a spirit defined by the drive to explore new frontiers, an intellectual curiosity, a need to challenge the status quo, and the inspiration to mind the greater good–all while impacting the bottom line. It all adds up to a culture of innovation.</p>  
+    </div>
+      <div class="text-center" style="margin-right: 100px;">
+      <button  (click)=onsup() type="button" class="btn btn-primary " style=" border-radius: 5em;bottom: 150px; position: absolute;">New Sign Up</button> 
+    </div>
+	</div>
+	<div class="table-responsive p-0">
+		<table class="table table-bordered" style="background-color: white;">
+      <thead style="background-color: blueviolet; color: white;">
+        <tr>
+          <th colspan="3" class="text-center">Upcoming Trainings</th>
+        </tr>
+      </thead>
+      <thead style="background-color: black; color: white;">
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">Title</th>
+          <th scope="col">Schedule</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let training of TrainingList;let i=index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{training.title}}</td>
+          <td>{{training.startDate | date}} - {{training.endDate | date}}</td>
+        </tr>
+      </tbody>
+    </table>
+	</div>
+	<div class="table-responsive p-0 ">
+		<table class="table table-bordered" style="background-color: white;">
+      <thead style="background-color: red; color: white;">
+        <tr>
+          <th colspan="7" class="text-center">Active Courses</th>
+        </tr>
+        <tr style="background-color: black; color: white;">
+          <th scope="col">S.No</th>
+          <th scope="col">Title</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Description</th>
+          <th scope="col">PreRequisites</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of cards;let i=index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{course.title}}</td>
+          <td>{{course.duration}}</td>
+          <td>{{course.description}}</td>
+          <td>{{course.preRequisites}}</td>
+        </tr>
+      </tbody>
+    </table>
+	</div>
+	<div class="last"  style="align-items: center; background-image: url(https://cdn.searchenginejournal.com/wp-content/uploads/2020/01/marketing-reports-5e0f54085b56c-760x400.png); background-repeat: no-repeat; background-size: cover;background-position: center;">
+		<div class="text-center mt-3 mb-0">
+      <button  (click)=onrep() type="button" class="btn btn-primary " style=" border-radius: 5em;">Reports</button> 
+    </div>
+	</div>
+</div>

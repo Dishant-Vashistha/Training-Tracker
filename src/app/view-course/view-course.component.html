@@ -1,0 +1,23 @@
+<div class="container-fluid">
+      
+    <h1 class="text-capitalize text-center pt-5">{{course.title}}</h1>
+    <hr class="w-25 pt-5 mx-auto" style="border-color: black">
+    <p class="text-center">Duration:&nbsp;{{course.duration}} Hours</p>
+    <p class="text-center">Description:&nbsp;{{course.description}}</p>
+    <p class="text-center">PreRequisites:&nbsp;{{course.preRequisites}}</p>
+    <p class="text-center">isLabApplicable:&nbsp;{{isLabApplicable}}</p>
+  
+  
+</div>
+  <section>
+      <div class="container mt-2 text-center">
+      
+          <button type="button"  class="btn btn-success justify-content-center m-1" >View Participants</button>
+      
+          <button type="button" class="btn btn-warning justify-content-center m-1" (click)="onEdit()">Edit</button>
+      
+          <button type="button"  class="btn btn-danger justify-content-center m-1" (click)="onDelete()">Delete</button>
+      
+      </div>
+  </section>
+  

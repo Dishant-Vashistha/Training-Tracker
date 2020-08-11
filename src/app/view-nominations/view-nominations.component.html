@@ -1,0 +1,65 @@
+<section class="jumbotron mb-0">
+  <div class="container-fluid" style=" border-style: solid; border-width: 5px;" >
+  <h1 class="text-capitalize text-center mt-3 ">View Nominations</h1>
+  <hr class="w-50 pt-5 mx-auto" style="border-color: black">
+
+  
+<div class="w-50 mx-auto mb-5" >
+<form #todoForm="ngForm" >
+<div class="form-inline ">
+<div class="form-group mb-3 mt-4">
+  <label for="selection"><b>Select Course :</b></label>
+  <select class="form-control" id="selection" required name="categoryNo"  [(ngModel)]="categoryNo">
+    <option *ngFor="let i of CoursesList" [value]="i.id">{{i.title}}</option>
+  </select>
+</div>
+<div class="form-group mb-3 mt-4">
+<label for="selection"><b>Select Training :</b></label>
+  <select class="form-control" id="trainingNo" required name="trainingNo"  [(ngModel)]="trainingNo">
+    <option *ngFor="let i of filterTrainingsOfId()" [value]="i.id" >{{i.title}}({{i.startDate | date}} - {{i.endDate | date}})</option>
+  </select>
+</div>
+</div> 
+<button  type="submit" class="btn btn-primary" (click)="onApplied()" >OK</button>
+</form>
+</div>
+</div>
+</section>
+<div *ngIf="isApplied" >
+    <h1 class="text-capitalize text-center pt-5 ">Your Nominations are</h1>
+    <hr class="w-25 pt-5 mx-auto" style="border-color: black">
+  
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Employee Id</th>
+        <th scope="col">TIER</th>
+        <th scope="col">Employee Name</th>
+        <th scope="col">Employee Email</th>
+        <th scope="col">PrimarySkill</th>
+        <th scope="col">SecondarySkill</th>
+        <th scope="col">BasicJava</th>
+        <th scope="col">ATC</th>
+        <th scope="col">Edit Nomination</th>
+        <th scope="col"> isShortlisted<input type="checkbox" (click)="selectAll()"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of nominations">
+        <!-- <th scope="row">{{i+1}}</th> -->
+        <td>{{post.empId}}</td>
+        
+        <td>{{post.empTIER}}</td>
+        <td>{{post.empName}}</td>
+        <td>{{post.empEmail}}</td>
+        <td>{{post.primarySkill}}</td>
+        <td>{{post.secondarySkill}}</td>
+        <td>{{post.basicJava}}</td>
+        <td>{{post.empATC}}</td>
+        <td><button class="btn btn-primary" (click)="onEdit(post.id)">Edit</button></td>
+        <td><input class="form-control" type="checkbox" [checked]="isChecked" [value]="post.empId" class='checkboxx'></td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-primary" (click)="onSubmit()"> submit</button>
+</div>

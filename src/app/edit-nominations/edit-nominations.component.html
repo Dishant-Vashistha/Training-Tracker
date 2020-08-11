@@ -1,0 +1,53 @@
+<section class="jumbotron mb-0" >
+	<div class="container-fluid" style=" border-style: solid; border-width: 5px;" >
+	<h1 class="text-capitalize text-center mt-3 ">{{Title}} Nomination</h1>
+	<hr class="w-50 pt-5 mx-auto" style="border-color: black">
+  
+    
+<div class="w-50 mx-auto mb-5" >
+ <form #todoForm="ngForm" [formGroup]="createForm">
+  
+  <div class="form-group">
+    <label for="uname"><b>Employee ID :</b></label>
+    <input type="number" 
+     class="form-control"
+     required
+     placeholder="Enter Employee ID" 
+     id="employeeId"
+     formControlName="employeeId"
+     name="employeeId"
+     >
+  </div>
+  <div class="form-group">
+    <label for="employeeFullname"><b>Employee Fullname :</b></label>
+    <input type="text" class="form-control" placeholder="Enter Full name" id="employeeFullname" required formControlName="employeeFullname" name="employeeFullname">
+  </div>
+ 
+  <div class="form-group">
+    <label for="employeeMailId"><b>Employee Mail ID :</b></label>
+    <input type="email" class="form-control" placeholder="Enter Email Id" id="employeeMailId" required formControlName="employeeMailId" name="employeeMailId">
+  </div>
+
+  <div class="form-group">
+    <label for="primaryskill"><b>Primary Skill :</b></label>
+    <input type="text" class="form-control" placeholder="Enter Primary Skill" id="primaryskill" required formControlName="primaryskill" name="primaryskill">
+  </div>
+
+  <div class="form-group">
+    <label for="secondaryskill"><b>Secondaryry Skill :</b></label>
+    <input type="text" class="form-control" placeholder="Enter Secondaryry Skill" id="secondaryskill" required formControlName="secondaryskill" name="secondaryskill">
+  </div>
+
+    <div class="form-group">
+    <label for="Java"><b>Java :</b></label>
+    <select name="Java" formControlName="Java">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+
+  <button *ngIf="!disableUpdate" type="submit" class="btn btn-warning" (click)='!todoForm.invalid && onUpdate(todoForm)' >Update</button>
+</form>
+</div>
+</div>
+</section>

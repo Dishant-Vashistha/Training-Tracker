@@ -1,0 +1,56 @@
+<section class="jumbotron mb-0" >
+	<div class="container-fluid" style=" border-style: solid; border-width: 5px;" >
+	<h1 class="text-capitalize text-center mt-3 ">{{Title}} Course</h1>
+	<hr class="w-50 pt-5 mx-auto" style="border-color: black">
+  
+    
+<div class="w-50 mx-auto mb-5" >
+ <form #todoForm="ngForm" [formGroup]="createForm">
+  
+  <div class="form-group">
+    <label for="uname"><b>Title :</b></label>
+    <input type="text" 
+     class="form-control"
+     required
+     placeholder="Enter Title" 
+     id="title"
+     formControlName="title"
+     name="title"
+     >
+     <span *ngIf="!createForm.get('title').valid && createForm.get('title').touched" class="text-danger">
+      Please enter a Valid Title 
+</span>
+  </div>
+  <div class="form-group">
+    <label for="Duration"><b>Duration in hours :</b></label>
+    <input type="number" class="form-control" placeholder="Enter in Hours" id="Duration" required formControlName="duration" name="duration">
+    <span *ngIf="!createForm.get('duration').valid && createForm.get('duration').touched" class="text-danger">
+      Please enter Valid Duration hours 
+</span>
+  </div>
+ 
+  <div class="form-group">
+    <label for="Description"><b>Description :</b></label>
+    <textarea class="form-control" id="Description" rows="3" required formControlName="description" name="Description"></textarea> 
+    <span *ngIf="!createForm.get('description').valid && createForm.get('description').touched" class="text-danger">
+      Please enter a Valid Description, no symbols are allowed 
+</span>
+  </div>
+  <div class="form-group">
+    <label for="prereq"><b>Pre Requisites :</b></label>
+    <textarea class="form-control" id="Description" rows="3" id="prereq" required formControlName="preRequisites" name="preRequisites"></textarea> 
+    <span *ngIf="!createForm.get('preRequisites').valid && createForm.get('preRequisites').touched" class="text-danger">
+      Please enter a Valid preRequisites, no symbols are allowed 
+</span>
+  </div>
+  <div class="form-group custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck1" formControlName='isLabApplicable' name="isLabApplicable">
+    <label class="custom-control-label" for="customCheck1">is Lab Applicable</label>
+  </div>
+  
+  <button *ngIf="disableUpdate" type="submit" class="btn btn-primary"  (click)='!todoForm.invalid && onSubmit(todoForm)'>Create</button>
+  <button *ngIf="!disableUpdate" type="submit" class="btn btn-warning" (click)='!todoForm.invalid && onUpdate(todoForm)' >Update</button>
+</form>
+</div>
+</div>
+</section>

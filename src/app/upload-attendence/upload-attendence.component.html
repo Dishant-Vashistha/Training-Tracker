@@ -1,0 +1,32 @@
+<section class="jumbotron mb-0" >
+  <div class="container-fluid" style=" border-style: solid; border-width: 5px;" >
+  <h1 class="text-capitalize text-center mt-3 ">Upload Attendence</h1>
+  <hr class="w-50 pt-5 mx-auto" style="border-color: black">
+
+  
+<div class="w-50 mx-auto mb-5" >
+<form #todoForm="ngForm" >
+<div class="form-inline ">
+<div class="form-group mb-3 mt-4">
+  <label for="selection"><b>Select Course :</b></label>
+  <select class="form-control" id="selection" required name="categoryNo"  [(ngModel)]="categoryNo">
+    <option *ngFor="let i of CoursesList" [value]="i.id">{{i.title}}</option>
+  </select>
+</div>
+<div class="form-group mb-3 mt-4">
+<label for="selection"><b>Select Training :</b></label>
+  <select class="form-control" id="trainingNo" required name="trainingNo"  [(ngModel)]="trainingNo">
+    <option *ngFor="let i of filterTrainingsOfId()" [value]="i.id" >{{i.title}}({{i.startDate |date}} - {{i.endDate | date}})</option>
+  </select>
+</div>
+</div> 
+
+
+
+<input type="file" (change)="onFileChange($event.target.files)"  name="filepath"  [(ngModel)]="filepath" multiple="false" >
+
+<button  type="submit" class="btn btn-primary" (click)="upload()"  >Upload</button>
+</form>
+</div>
+</div>
+</section>

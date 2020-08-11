@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <form [formGroup]="filterForm">
+  <div class="m-5">
+    <div>
+      <label for="selection"><b>Select Course :</b></label>
+      <select class="form-control" id="selection" name="categoryNo" required=true formControlName="course">
+        <option value="showAll" >Show-All</option>
+        <option *ngFor="let i of CoursesList" [value]="i.id" >{{i.title}}</option>
+      </select>
+      <label class="mr-2" for="range"><b>Starting Date :</b></label>
+      <input class="form-control" type="date" name="startDate" formControlName="startDate">
+      <label class="mr-2" for="range"><b>Ending Date :</b></label>
+      <input class="form-control" type="date"  name="endDate" formControlName="endDate">
+    </div>
+    <button class="mt-2 btn btn-primary" (click)="onApply()">Apply</button>
+  </div>
+  
+  </form>
+</div>
+<div>
+  <div class="container-fluid" >
+    <ag-grid-angular
+    style="width: 1200px; height:500px;"
+    class="ag-theme-balham gridStyle"
+    [columnDefs]="columnDefs"
+    [enableSorting]="true"
+    [enableFilter]="true"
+    [animateRows]="true"
+    [pagination]="true"
+    [paginationPageSize]="paginationPageSize"
+    (gridReady)="onGridReady($event)"
+    >
+    </ag-grid-angular>
+    </div>
+</div>

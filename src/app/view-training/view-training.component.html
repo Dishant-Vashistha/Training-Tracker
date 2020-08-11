@@ -1,0 +1,25 @@
+<div class="container-fluid">
+      
+    <h1 class="text-capitalize text-center pt-5">{{training.title}}</h1>
+    <hr class="w-25 pt-5 mx-auto" style="border-color: black">
+    <p class="text-center">Trainer:&nbsp;{{training.trainer}}</p>
+    <p class="text-center">StartDate:&nbsp;{{training.startDate}}</p>
+    <p class="text-center">EndDate:&nbsp;{{training.endDate}}</p>
+    <p class="text-center">StartTime:&nbsp;{{training.startTime}}</p>
+    <p class="text-center">EndTime:&nbsp;{{training.endTime}}</p>
+    <p class="text-center">isActive:&nbsp;{{isActive}}</p>
+  
+  
+</div>
+  <section>
+      <div class="container mt-2 text-center">
+      
+          <button type="button"  class="btn btn-success justify-content-center m-1" >View Participants</button>
+      
+          <button type="button" class="btn btn-warning justify-content-center m-1" (click)="onEdit()">Edit</button>
+      
+          <button type="button"  class="btn btn-danger justify-content-center m-1" (click)="onDelete()">Delete</button>
+      
+      </div>
+  </section>
+  

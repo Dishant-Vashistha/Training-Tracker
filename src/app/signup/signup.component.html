@@ -1,0 +1,117 @@
+<div class="login-page">
+    <mat-card class="mat-elevation-z12 mat1">
+        <mat-card-title style="text-align:center;">SignUp</mat-card-title>
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+          <mat-tab label="Sign Up">
+            <mat-card-content class="mat3">
+              <form action="#" [formGroup]="signupForm" (ngSubmit)="!todoForm.invalid && onSubmit()" #todoForm="ngForm">
+                <mat-form-field class="mat2">
+                  <input
+                    matInput
+                    placeholder="User Name"
+                    required
+                    formControlName="username"
+                    name="username"
+                    >
+                  <mat-icon matSuffix>perm_identity</mat-icon>
+                  <mat-error
+                    *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">
+                    Username is required
+                  </mat-error>
+    
+                </mat-form-field>
+                <mat-form-field class="mat2">
+                  <input
+                    matInput
+                    placeholder="First Name"
+                    required
+                    formControlName="firstName"
+                    name="fname"
+                    >
+                  <mat-icon matSuffix>perm_identity</mat-icon>
+                  <mat-error
+                    *ngIf="!signupForm.get('firstName').valid && signupForm.get('firstName').touched">
+                    FirstName is required
+                  </mat-error>
+    
+                </mat-form-field>
+                <mat-form-field class="mat2">
+                  <input
+                    matInput
+                    placeholder="Last Name"
+                    required
+                    formControlName="lastName"
+                    name="lname"
+                    >
+                  <mat-icon matSuffix>perm_identity</mat-icon>
+                  <mat-error
+                    *ngIf="!signupForm.get('lastName').valid && signupForm.get('lastName').touched">
+                    LastName is required
+                  </mat-error>
+    
+                </mat-form-field>
+                <mat-form-field class="mat2">
+                  <input
+                    matInput
+                    placeholder="Phone Number"
+                    type="number"
+                    required
+                    formControlName="phone"
+                    name="phone"
+                    >
+                  <mat-icon matSuffix>perm_identity</mat-icon>
+                  <mat-error
+                    *ngIf="!signupForm.get('phone').valid && signupForm.get('phone').touched">
+                    Please Enter a Valid Mobile number
+                  </mat-error>
+    
+                </mat-form-field>
+                <mat-form-field class="mat2">
+                  <input
+                    matInput
+                    placeholder="Email"
+                    required
+                    formControlName="email"
+                    name="email"
+                    >
+                    <mat-error
+                    *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
+                    Please Enter a Valid Email
+                  </mat-error>
+                  <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="mat2">
+                  <input
+                    matInput
+                    placeholder="Password"
+                    type="password"
+                    required
+                    formControlName="password"
+                    name="password"
+                    >
+                    <mat-error
+                    *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">
+                    Please Enter a Valid Email and that too of minlength 6
+                  </mat-error>
+                    
+                  <mat-icon matSuffix>lock</mat-icon>
+    
+                </mat-form-field>
+            
+                <button
+                  mat-raised-button
+                  type="submit"
+                  color="primary"
+                  class="login-button">
+                  Sign Up
+                </button>
+              </form>
+            </mat-card-content>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card>
+    </div>
+
+<mat-grid-tile rowspan="3.5" colspan="2" style="background-color:Gainsboro;" >
+
+</mat-grid-tile>

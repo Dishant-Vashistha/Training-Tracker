@@ -1,0 +1,113 @@
+<!-- Page Content -->
+<div class="w3-teal">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;"> 
+     <img src="../assets/abg.png" width="30" height="30" alt="avchd" (click)="myFunction($event.target)"  id="mySidebar">
+    <a class="navbar-brand ml-2" href="#">Virtusa-TP</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>		
+  
+      </ul>
+      <ul class="navbar-nav navbar-right">
+        <li class="nav-item">
+          <h5><a class="nav-link font-weight-bold " href="#">Login</a></h5>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  </div> 
+  
+  
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-border-right" style="background-color:powderblue; display:none" id="mySidebar" >
+  
+  <div class="sidebar-header" >
+         <nav style="background-color:powderblue;">
+		<ul class="mcd-menu" style="background-color:powderblue;">
+		   <button (click)="w3_close()" class="w3-bar-item w3-large" style="background-color:#22e6e0;"><strong >Close</strong> &times;</button>
+			<li>
+				<a href="">
+					<i class="fa fa-home"></i>
+					<strong>Home</strong>
+					<small>virtusa training</small>
+				</a>
+			</li>
+			<li>
+				<a href="" class="active">
+					<i class="fa fa-edit"></i>
+					<strong>About us</strong>
+					<small>virtusa training</small>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<i class="fa fa-gift"></i>
+					<strong>Features</strong>
+					<small>virtusa training</small>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<i class="fa fa-globe"></i>
+					<strong>News</strong>
+					<small>virtusa training</small>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<i class="fa fa-comments-o"></i>
+					<strong>Blog</strong>
+					<small>what they say</small>
+				</a>
+				<ul>
+					<li><a href="#"><i class="fa fa-globe"></i>Mission</a></li>
+					<li>
+						<a href="#"><i class="fa fa-group"></i>Our Team</a>
+						<ul>
+							<li><a href="#"><i class="fa fa-female"></i>Leyla Sparks</a></li>
+							<li>
+								<a href="#"><i class="fa fa-male"></i>Gleb Ismailov</a>
+								<ul>
+									<li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
+									<li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
+								</ul>
+							</li>
+							<li><a href="#"><i class="fa fa-female"></i>Viktoria Gibbers</a></li>
+						</ul>
+					</li>
+					<li><a href="#"><i class="fa fa-trophy"></i>Rewards</a></li>
+					<li><a href="#"><i class="fa fa-certificate"></i>Certificates</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="">
+					<i class="fa fa-picture-o"></i>
+					<strong>Portfolio</strong>
+					<small>virtusa training</small>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<i class="fa fa-envelope-o"></i>
+					<strong>Contacts</strong>
+					<small>drop a line</small>
+				</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+</div>
+

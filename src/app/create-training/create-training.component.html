@@ -1,0 +1,98 @@
+<section class="jumbotron mb-0" >
+	<div class="container-fluid" style=" border-style: solid; border-width: 5px;" >
+	<h1 class="text-capitalize text-center mt-3 ">{{Title}} Training</h1>
+	<hr class="w-50 pt-5 mx-auto" style="border-color: black">
+  
+    
+<div class="w-50 mx-auto mb-5" >
+ <form #todoForm="ngForm" [formGroup]="createForm">
+  <span *ngIf="inValid" class="text-danger">
+    {{errorMessage}}
+ </span>
+  <div class="form-group">
+    <label for="selection"><b>Select Course :</b></label>
+    <select class="form-control" id="selection" required formControlName="course" >
+      <option *ngFor="let i of CoursesList" [value]="i.id">{{i.title}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="uname"><b>Title :</b></label>
+    <input type="text" 
+     class="form-control"
+     required
+     placeholder="Enter Title" 
+     id="title"
+     formControlName="title"
+     name="title"
+     >
+     <span *ngIf="!createForm.get('title').valid && createForm.get('title').touched" class="text-danger">
+                Please enter a Valid Title 
+     </span>
+  </div>
+  <div class="form-group">
+    <label for="uname"><b>ATC :</b></label>
+    <input type="text" 
+     class="form-control"
+     required
+     placeholder="Enter Training ATC" 
+     id="ATC"
+     formControlName="ATC"
+     name="ATC"
+     >
+     <span *ngIf="!createForm.get('ATC').valid && createForm.get('ATC').touched" class="text-danger">
+                Please enter a Valid ATC 
+     </span>
+  </div>
+  <div class="form-group">
+    <label for="trainer"><b>Trainer :</b></label>
+    <input type="text" class="form-control" placeholder="trainer" id="trainer" required formControlName="trainer" name="trainer">
+    <span *ngIf="!createForm.get('trainer').valid && createForm.get('trainer').touched" class="text-danger">
+      Please enter a Valid Trainer Name 
+   </span> 
+  </div>
+  
+ <div class="form-inline ">
+  <div class="form-group mb-3 mt-4">
+    <label class="mr-2" for="range"><b>Starting Date :</b></label>
+    <input class="form-control" type="date" required formControlName="startDate" name="startDate" >
+    <span *ngIf="!createForm.get('startDate').valid && createForm.get('startDate').touched" class="text-danger">
+      Please enter a Start Date 
+   </span>
+ </div>
+ <div class="form-group mb-3 mt-4">
+  <label class="" for="range"><b>End Date :&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+  <input class="form-control" type="date" required formControlName="endDate" name="endDate" >
+  <span *ngIf="!createForm.get('endDate').valid && createForm.get('endDate').touched" class="text-danger">
+    Please enter a End Date 
+ </span>
+</div>
+</div> 
+
+  <!-- <div class="form-group custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck1">
+    <label class="custom-control-label" for="customCheck1">isActive</label>
+  </div> -->
+  <div class="form-inline ">
+    <div class="form-group mb-3 mt-4">
+      <label class="mr-2" for="sTime"><b>Start Time :</b></label>
+      <input class="form-control" type="time"  required formControlName="startTime" name="sTime" 
+      >
+      <span *ngIf="!createForm.get('startTime').valid && createForm.get('startTime').touched" class="text-danger">
+        Please enter Start Time
+     </span>
+   </div>
+   <div class="form-group mb-3 mt-4">
+    <label class="m-2" for="eTime"><b>End Time :&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+    <input class="form-control" type="time" required formControlName="endTime" name="eTime" 
+    >
+    <span *ngIf="!createForm.get('endTime').valid && createForm.get('endTime').touched" class="text-danger">
+      Please enter End Time
+   </span>
+  </div>
+  </div> 
+  <button *ngIf="disableUpdate" type="submit" class="btn btn-primary"  (click)='!todoForm.invalid && onSubmit(todoForm)'>Create</button>
+  <button *ngIf="!disableUpdate" type="submit" class="btn btn-warning" (click)='!todoForm.invalid && onUpdate(todoForm)' >Update</button>
+</form>
+</div>
+</div>
+</section>

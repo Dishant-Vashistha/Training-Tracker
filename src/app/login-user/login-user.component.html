@@ -1,0 +1,40 @@
+<section>
+    <img src="assets\b.jpg" alt="" style="height: 750px; width: 1480px; 
+    background-position: center;
+    background-repeat: no-repeat;  background-size: cover;
+  ">
+    <div class="login-box" [ngStyle]="{background: 'url(https://cdn.cnn.com/cnnnext/dam/assets/161220105643-this-could-be-awkward-background-light-full-169.jpg)' }"  >
+        <img src="../assets/avatar.png" class="avatar" >
+            <h1 class="text-dark">Login Here</h1>
+                <form [formGroup]="signinForm" (ngSubmit)=" !doform.invalid && handleLogin()" #doform="ngForm">
+                <span 
+                    *ngIf="inValidLogin" class="text-dark">
+                    {{errorMessage}}
+                </span>
+                <p class="text-dark" >Username</p>
+                <input type="text"
+                  class="text-dark"
+                name="username"
+                 placeholder="Enter Username"
+                 formControlName="username"
+                >
+                <span
+                *ngIf="!signinForm.get('username').valid && signinForm.get('username').touched" class="text-danger">
+                Please Enter a Valid username
+               </span>
+                <p class="text-dark">Password</p>
+                <input type="password" 
+                name="password" 
+                class="text-dark"
+                placeholder="Enter Password"
+                formControlName="password"
+                >
+                <span
+                *ngIf="!signinForm.get('password').valid && signinForm.get('password').touched" class="text-danger">
+                Please Enter a Valid password
+                </span>
+                <input type="submit" name="submit" value="Login">
+                
+            </form>
+            </div>
+</section>
