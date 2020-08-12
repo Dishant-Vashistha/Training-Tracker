@@ -1,3 +1,4 @@
+import { AttendenceNominationService } from './../service/attendence-nomination.service';
 import { Component, OnInit } from '@angular/core';
 
 import * as XLSX from 'xlsx';
@@ -14,11 +15,11 @@ export class UploadNominationsComponent implements OnInit {
   TrainingList:any=[];
   categoryNo: any;
   trainingNo:any;
-  url="http://localhost:8080/nomin/uploadFile";
+  
   filepath:string;
   showErrorLog:boolean=false;
   fileToUpload: File = null;
-  constructor(private http:HttpClient ,private gs:GetCourseTrainingService) { }
+  constructor(private http:HttpClient ,private gs:GetCourseTrainingService,private an:AttendenceNominationService) { }
 
   ngOnInit(): void {
      this.gs.getCourses().subscribe(
@@ -47,7 +48,7 @@ export class UploadNominationsComponent implements OnInit {
         formdata.append('trainingId',this.trainingNo);
        console.log(formdata);
 
-this.http.post<Array<any>>(this.url,formdata).subscribe(
+this.an.uploadNomination(formdata).subscribe(
   res=>{alert("Nominations Uploaded Successfully!")
   this.errorLog=res}
   ,err=>console.log("Not Uploaded Successfully"));

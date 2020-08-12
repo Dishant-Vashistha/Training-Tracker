@@ -1,3 +1,4 @@
+import { AttendenceNominationService } from './../service/attendence-nomination.service';
 import { Component, OnInit } from '@angular/core';
 import { GetCourseTrainingService } from '../service/get-course-training.service';
 import { HttpClient } from '@angular/common/http';
@@ -15,7 +16,7 @@ export class ViewNominationsComponent implements OnInit {
   categoryNo: any;
   trainingNo:any;
   nominations:any=[]
-  constructor(private gs:GetCourseTrainingService,private http:HttpClient,private router:Router) { }
+  constructor(private gs:GetCourseTrainingService,private http:HttpClient,private router:Router,private an:AttendenceNominationService) { }
   posts:Array<any>;
   filterTrainingsOfId(){
     if(this.categoryNo!=null)
@@ -36,14 +37,13 @@ export class ViewNominationsComponent implements OnInit {
   selectAll(){
     this.isChecked=!this.isChecked;
   }
-  _url='http://localhost:8080/nomin/search';
   onApplied(){
     this.trainingNo=$("#trainingNo").val();
     this.isApplied=true;
     let formdata:FormData=new FormData();
     formdata.append('training',this.trainingNo);
     formdata.append('course',this.categoryNo);
-    this.http.post(this._url,formdata).subscribe(
+    this.an.viewNomination(formdata).subscribe(
       res=> this.nominations = res,
       err=>alert("opps! Error")
     )
@@ -68,8 +68,7 @@ export class ViewNominationsComponent implements OnInit {
    formdata.append('trainingId',this.trainingNo);
  
   
-    let _urlemail:string ='http://localhost:8080/nomin/sendEmailList'
-    this.http.post(_urlemail,formdata,{responseType:'text' as 'json'}).subscribe(
+    this.an.sendMail(formdata).subscribe(
       res=>alert("Mail Sent Successfully"),
       err=>alert("Opps! Error")
     )

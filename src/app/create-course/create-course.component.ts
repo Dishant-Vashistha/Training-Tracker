@@ -91,7 +91,7 @@ export class CreateCourseComponent implements OnInit {
     course.append("description", this.createForm.get('description').value);
     course.append("preRequisites", this.createForm.get('preRequisites').value);
     course.append("isLabApplicable", this.createForm.get('isLabApplicable').value+" ");
-    course.append("createdBy",this.ls.username);
+    course.append("createdBy",this.ls.getUserName().fname);
     this.cT.createCourse(course);
     createForm.reset();
   }
@@ -103,7 +103,7 @@ export class CreateCourseComponent implements OnInit {
     course.append("description", this.createForm.get('description').value);
     course.append("preRequisites", this.createForm.get('preRequisites').value);
     course.append("isLabApplicable", this.createForm.get('isLabApplicable').value+" ");
-    course.append("updatedBy",this.ls.username);
+    course.append("updatedBy",this.ls.getUserName().fname);
     course.append("id",this.id);
     //console.log(this.id);
     this.cT.updateCourse(course)

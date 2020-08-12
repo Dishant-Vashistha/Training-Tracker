@@ -101,7 +101,7 @@ export class CreateTrainingComponent implements OnInit {
         formData.append("endDate",this.datepipe.transform(this.createForm.get('endDate').value,'dd-MM-yyyy' ));
         formData.append("startTime",(this.createForm.get('startTime').value));
         formData.append("endTime",(this.createForm.get('endTime').value));
-        formData.append("createdBy",this.ls.username);
+        formData.append("createdBy",this.ls.getUserName().fname);
       
         let d1:Date =new Date(this.createForm.get('startDate').value);
         let d2:Date =new Date(this.createForm.get('endDate').value);
@@ -127,7 +127,7 @@ export class CreateTrainingComponent implements OnInit {
     training.append("endDate",this.datepipe.transform(this.createForm.get('endDate').value,'dd-MM-yyyy'));
     training.append("startTime", this.createForm.get('startTime').value);
     training.append("endTime", this.createForm.get('endTime').value);
-    training.append("updatedBy",this.ls.username);
+    training.append("updatedBy",this.ls.getUserName().fname);
     training.append("id",this.id);
     training.append("course.id",(this.createForm.get('course').value));
     

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetCourseTrainingService } from '../service/get-course-training.service';
 import * as XLSX from 'xlsx'; 
+import { ReportService } from '../service/report.service';
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
@@ -17,10 +18,10 @@ export class ReportComponent implements OnInit {
   atcList:any=[];
   tierList:any=[]
   
-  constructor(private gs:GetCourseTrainingService) { }
+  constructor(private rs:ReportService) { }
 
   ngOnInit(): void {
-    this.gs.getAtc().subscribe(
+    this.rs.getAtc().subscribe(
       res=>{
         this.atcList=res;
         let obj={atc:"Grand Total",
@@ -40,7 +41,7 @@ export class ReportComponent implements OnInit {
       },
       err=>alert("Opps! Error")
     )
-    this.gs.getTier().subscribe(
+    this.rs.getTier().subscribe(
       res=>{
         this.tierList=res;
         let obj={primarySkill:"Grand Total",

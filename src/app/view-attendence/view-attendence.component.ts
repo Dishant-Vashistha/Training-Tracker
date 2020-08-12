@@ -1,3 +1,4 @@
+import { AttendenceNominationService } from './../service/attendence-nomination.service';
 import { Component, OnInit } from '@angular/core';
 import { GetCourseTrainingService } from '../service/get-course-training.service';
 import { HttpClient } from '@angular/common/http';
@@ -15,7 +16,7 @@ export class ViewAttendenceComponent implements OnInit {
   categoryNo: any;
   trainingNo:any;
   nominations:any=[]
-  constructor(private gs:GetCourseTrainingService,private http:HttpClient) { }
+  constructor(private gs:GetCourseTrainingService,private an:AttendenceNominationService,private http:HttpClient) { }
   posts:Array<any>;
   filterTrainingsOfId(){
     if(this.categoryNo!=null)
@@ -32,14 +33,14 @@ export class ViewAttendenceComponent implements OnInit {
       err=>alert("opps! error!")
     )
   }
-  _url='http://localhost:8080/attendance/showAttendance';
+
   onApplied(){
     this.isApplied=true;
     this.trainingNo=$("#trainingNo").val();
     let formdata:FormData=new FormData();
     formdata.append('trainingId',this.trainingNo);
-    //formdata.append('course',this.categoryNo);
-    this.http.post(this._url,formdata).subscribe(
+
+    this.an.viewAttendence(formdata).subscribe(
       res=> this.nominations = res,
       err=>alert("opps! Error")
     )

@@ -1,3 +1,4 @@
+import { AttendenceNominationService } from './../service/attendence-nomination.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GetCourseTrainingService } from '../service/get-course-training.service';
@@ -13,11 +14,11 @@ export class UploadAttendenceComponent implements OnInit {
   TrainingList:any=[];
   categoryNo: any;
   trainingNo:any;
-  url="http://localhost:8080/attendance/uploadAttendance";
+  
   filepath:string;
   x:any;
   fileToUpload: File = null;
-  constructor(private http:HttpClient ,private gs:GetCourseTrainingService) { }
+  constructor(private http:HttpClient ,private gs:GetCourseTrainingService,private an:AttendenceNominationService) { }
 
   ngOnInit(): void {
      this.gs.getCourses().subscribe(
@@ -50,7 +51,7 @@ export class UploadAttendenceComponent implements OnInit {
        console.log("hello",this.trainingNo);
 
 
-this.http.post(this.url,formdata,{responseType:'text' as 'json'}).subscribe(res=>alert("Attentdence uploaded successfully"),err=>alert("Attentdence not uploaded"));
+this.an.uploadAttendence(formdata).subscribe(res=>alert("Attentdence uploaded successfully"),err=>alert("Attentdence not uploaded"));
        
        
    }

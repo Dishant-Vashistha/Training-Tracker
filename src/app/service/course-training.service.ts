@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -34,10 +35,10 @@ export class CourseTrainingService {
     }
 
   }
-  _createtraining='http://localhost:8080/Training/add';
+  
   createTraining(training:FormData){
     try{
-    this.http.post(this._createtraining,
+    this.http.post(environment.createtraining,
       training,{responseType:'text' as 'json'}).subscribe(
         response=>alert("Training Created Successfully"),
         err=>alert("Opps! Error!")
@@ -47,11 +48,10 @@ export class CourseTrainingService {
     }
   }
 
-  _updateurl1='http://localhost:8080/Training/update';
   updateTraining(training:FormData){
     try{
       
-      this.http.put(this._updateurl1,
+      this.http.put(environment.updateTraining,
         training,{responseType:'text' as 'json'}).subscribe(
         response=>alert("Training Updated Successfully"),
         err=>alert("Opps Error!")
@@ -61,10 +61,10 @@ export class CourseTrainingService {
       }
   
   }
-  updateNominationurl='http://localhost:8080/nomin/add-edit'
+  
   updateNomination(data:FormData)
   {
-    return this.http.post(this.updateNominationurl,data,{responseType:'text' as 'json'})
+    return this.http.post(environment.updateNominationurl,data,{responseType:'text' as 'json'})
   }
 
 }
