@@ -14,29 +14,9 @@ export class ReportComponent implements OnInit {
   trainingNo:any;
   isApplied=false;
   CoursesList=[];
-  TrainingList=[];
   atcList:any=[];
-  tierList=[{title:"AUS Group",t1:147,t2:35,t3:17,t4:2,total:201},
-    {title:"BLR Group",t1:154,t2:35,t3:17,t4:2,total:207},
-  {title:"CA Group",t1:147,t2:140,t3:17,t4:2,total:306},
-  {title:"CHE Group",t1:147,t2:35,t3:25,t4:2,total:209},
-  {title:"CMB Group",t1:526,t2:268,t3:16,t4:33,total:843},
-  {title:"DEL Group",t1:153,t2:35,t3:20,t4:2,total:210},
-  {title:"Dutch Group",t1:150,t2:35,t3:17,t4:2,total:204},
-  {title:"HYD Group",t1:881,t2:498,t3:102,t4:26,total:1507},
-  {title:"MUM Group",t1:250,t2:35,t3:17,t4:10,total:312},
-  {title:"MY Group",t1:150,t2:40,t3:17,t4:2,total:209},
-  {title:"Pune Group",t1:147,t2:120,t3:17,t4:2,total:286},
-  {title:"SE Group",t1:149,t2:35,t3:20,t4:3,total:207},
-  {title:"UK Group",t1:147,t2:40,t3:17,t4:2,total:206},
-  {title:"UAE Group",t1:152,t2:35,t3:22,t4:2,total:211},
-  {title:"Grand Total",t1:150,t2:37,t3:17,t4:2,total:206}
-]
-  filterTrainingsOfId(){
-    if(this.categoryNo!=null){
-    return this.TrainingList.filter(x=> x.id == this.categoryNo);}
-    else return this.TrainingList
-  }
+  tierList:any=[]
+  
   constructor(private gs:GetCourseTrainingService) { }
 
   ngOnInit(): void {
@@ -60,10 +40,26 @@ export class ReportComponent implements OnInit {
       },
       err=>alert("Opps! Error")
     )
-    this.gs.getTrainings().subscribe(
-     res=>{this.TrainingList=res,this.trainings=this.TrainingList.length;},
-     err=>alert("Opps! Error")
-   )
+    this.gs.getTier().subscribe(
+      res=>{
+        this.tierList=res;
+        let obj={primarySkill:"Grand Total",
+        tierWiseCalculator:{tier0:0,tier1:0,tier2:0,tier3:0,tier4:0,grandTotal:0}
+      }
+        
+        for(let i=0;i<this.tierList.length;i++){
+          obj.tierWiseCalculator.tier0=obj.tierWiseCalculator.tier0+this.tierList[i].tierWiseCalculator.tier0;
+          obj.tierWiseCalculator.tier1=obj.tierWiseCalculator.tier1+this.tierList[i].tierWiseCalculator.tier1;
+          obj.tierWiseCalculator.tier2=obj.tierWiseCalculator.tier2+this.tierList[i].tierWiseCalculator.tier2;
+          obj.tierWiseCalculator.tier3=obj.tierWiseCalculator.tier3+this.tierList[i].tierWiseCalculator.tier3;
+          obj.tierWiseCalculator.tier4=obj.tierWiseCalculator.tier4+this.tierList[i].tierWiseCalculator.tier4;
+          obj.tierWiseCalculator.grandTotal=obj.tierWiseCalculator.grandTotal+this.tierList[i].tierWiseCalculator.grandTotal;
+        }
+
+        this.tierList.push(obj);
+      },
+      err=>alert("Opps! Error")
+    )
    
    
   }

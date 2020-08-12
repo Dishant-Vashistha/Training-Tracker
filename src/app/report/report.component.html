@@ -79,26 +79,33 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">S.No</th>
-        <th scope="col">Skill Set</th>
+        <th scope="col">Primary Skills</th>
+        <th scope="col">Tier-1</th>
         <th scope="col">Tier-2</th>
         <th scope="col">Tier-3</th>
         <th scope="col">Tier-4</th>
+        <th scope="col">Tier-5</th>
         <th scope="col">Grand Total</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let post of tierList; let i = index">
         <th scope="row">{{i+1}}</th>
-        <td *ngIf="post.title!='Grand Total'">{{post.title}}</td>
-        <td *ngIf="post.title!='Grand Total'">{{post.t2}}</td>
-        <td *ngIf="post.title!='Grand Total'">{{post.t3}}</td>
-        <td *ngIf="post.title!='Grand Total'">{{post.t4}}</td>
-        <td *ngIf="post.title!='Grand Total'">{{post.total}}</td>
-        <td *ngIf="post.title=='Grand Total'" style="background-color:darkgray;">{{post.title}}</td>
-        <td *ngIf="post.title=='Grand Total'" style="background-color:darkgray;">{{post.t2}}</td>
-        <td *ngIf="post.title=='Grand Total'" style="background-color:darkgray;">{{post.t3}}</td>
-        <td *ngIf="post.title=='Grand Total'" style="background-color:darkgray;">{{post.t4}}</td>
-        <td *ngIf="post.title=='Grand Total'" style="background-color:darkgray;">{{post.total}}</td>
+        <td *ngIf="post.title!='Grand Total'">{{post.primarySkill}}</td>
+        <td *ngIf="post.title!='Grand Total'">{{post.tierWiseCalculator.tier0}}</td>
+        <td *ngIf="post.title!='Grand Total'">{{post.tierWiseCalculator.tier1}}</td>
+        <td *ngIf="post.title!='Grand Total'">{{post.tierWiseCalculator.tier2}}</td>
+        <td *ngIf="post.title!='Grand Total'">{{post.tierWiseCalculator.tier3}}</td>
+        <td *ngIf="post.title!='Grand Total'">{{post.tierWiseCalculator.tier4}}</td>
+        <td *ngIf="post.title!='Grand Total'">{{post.tierWiseCalculator.grandTotal}}</td>
+        <td *ngIf="post.title=='Grand Total'" style="background-color:darkgray;">{{post.primarySkill}}</td>
+        <td *ngIf="post.title=='Grand Total'" style="background-color:darkgray;">{{post.tierWiseCalculator.tier0}}</td>
+        <td *ngIf="post.title=='Grand Total'" style="background-color:darkgray;">{{post.tierWiseCalculator.tier1}}</td>
+        <td *ngIf="post.title=='Grand Total'" style="background-color:darkgray;">{{post.tierWiseCalculator.tier2}}</td>
+        <td *ngIf="post.title=='Grand Total'" style="background-color:darkgray;">{{post.tierWiseCalculator.tier3}}</td>
+        <td *ngIf="post.title=='Grand Total'" style="background-color:darkgray;">{{post.tierWiseCalculator.tier4}}</td>
+        <td *ngIf="post.title=='Grand Total'" style="background-color:darkgray;">{{post.tierWiseCalculator.grandTotal}}</td>
+      
       </tr>
     </tbody>
   </table>

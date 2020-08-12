@@ -90,5 +90,8 @@ export class GetCourseTrainingService {
     return this.http.get<Array<any>>(this.getAtcReport);
   }
  
-
+  getTierReport='http://localhost:8080/nomin/getTierreport'
+  getTier(){
+    return this.http.get<Array<any>>(this.getTierReport);
+  }
 }
