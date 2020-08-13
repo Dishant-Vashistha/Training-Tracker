@@ -37,6 +37,12 @@ export class TrainingComponent implements OnInit {
         sortingOrder:["asc","desc",null],
       },
       {
+        headerName:"Batch Code",
+        field:"batchcode",
+        width:110,
+        sortingOrder:["asc","desc",null],
+      },
+      {
         headerName:"Title",
         field:"title",
         width:150,
