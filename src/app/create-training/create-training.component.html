@@ -50,20 +50,32 @@
       Please enter a Valid Trainer Name 
    </span> 
   </div>
+  <div class="form-group">
+    <label for="skillset"><b>Required Skills(If there are multiple skills then separate it with ",") :</b></label>
+    <input  type="text" class="form-control" placeholder="Required skillset" id="skillset" required formControlName="skillset" name="skillset">
+    <!-- <button>Add</button>
+    <ol *ngFor="let skill of skillset" style="list-style: none;">
+          <p style="background-color: yellow; display:inline;">{{skill.title}}</p>
+          <button class style="background-color: red;">Danger</button>
+    </ol> -->
+    <!-- <span *ngIf="!createForm.get('skillset').valid && createForm.get('skillset').touched" class="text-danger">
+      Please enter some re
+   </span>  -->
+  </div>
   
  <div class="form-inline ">
   <div class="form-group mb-3 mt-4">
     <label class="mr-2" for="range"><b>Starting Date :</b></label>
     <input class="form-control" type="date" required formControlName="startDate" name="startDate" >
     <span *ngIf="!createForm.get('startDate').valid && createForm.get('startDate').touched" class="text-danger">
-      Please enter a Start Date 
+      Please enter a Valid Start Date 
    </span>
  </div>
  <div class="form-group mb-3 mt-4">
   <label class="" for="range"><b>End Date :&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
   <input class="form-control" type="date" required formControlName="endDate" name="endDate" >
   <span *ngIf="!createForm.get('endDate').valid && createForm.get('endDate').touched" class="text-danger">
-    Please enter a End Date 
+    Please enter a Valid End Date 
  </span>
 </div>
 </div> 
@@ -78,7 +90,7 @@
       <input class="form-control" type="time"  required formControlName="startTime" name="sTime" 
       >
       <span *ngIf="!createForm.get('startTime').valid && createForm.get('startTime').touched" class="text-danger">
-        Please enter Start Time
+        Please enter a Valid Start Time
      </span>
    </div>
    <div class="form-group mb-3 mt-4">
@@ -86,7 +98,7 @@
     <input class="form-control" type="time" required formControlName="endTime" name="eTime" 
     >
     <span *ngIf="!createForm.get('endTime').valid && createForm.get('endTime').touched" class="text-danger">
-      Please enter End Time
+      Please enter a Valid End Time
    </span>
   </div>
   </div> 

@@ -15,7 +15,8 @@ import { Component, OnInit } from '@angular/core';
 export class CreateTrainingComponent implements OnInit {
   dateConfig:Partial<BsDatepickerConfig>;
   
-  errorMessage:String="Invalid Date or Time"
+  errorMessage:String="Invalid Date or Time";
+  skillset=[{title:"Angular"}];
   CoursesList:any=[]
   Title:string
   id:any;
@@ -50,6 +51,7 @@ export class CreateTrainingComponent implements OnInit {
         'title' : new FormControl(null,[Validators.required,Validators.pattern("^[a-zA-Z0-9 ]*$"),Validators.minLength(3)]),
         'ATC' : new FormControl(null,[Validators.required,Validators.pattern("^[a-zA-Z0-9 ]*$"),Validators.minLength(3)]),
         'trainer': new FormControl(null,[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
+        'skillset': new FormControl(null),
         'startDate' : new FormControl(null,[Validators.required,this.ValidateDate]),
         'endDate' : new FormControl(null,[Validators.required,this.ValidateDate]),
         'startTime' : new FormControl(null,[Validators.required]),
@@ -64,6 +66,7 @@ export class CreateTrainingComponent implements OnInit {
         'title' : new FormControl(null,[Validators.required,Validators.pattern("^[a-zA-Z0-9 ]*$"),Validators.minLength(3)]),
         'ATC' : new FormControl(null,[Validators.required,Validators.pattern("^[a-zA-Z0-9 ]*$"),Validators.minLength(3)]),
         'trainer': new FormControl(null,[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
+        'skillset': new FormControl(null),
         'startDate' : new FormControl(null,[Validators.required,this.ValidateDate]),
         'endDate' : new FormControl(null,[Validators.required,this.ValidateDate]),
         'startTime' : new FormControl(null,[Validators.required]),
@@ -83,6 +86,7 @@ export class CreateTrainingComponent implements OnInit {
           this.createForm.get('endDate').setValue(this.tmp.endDate);
           this.createForm.get('startTime').setValue(this.tmp.startTime);
           this.createForm.get('endTime').setValue(this.tmp.endTime);
+          this.createForm.get('skillset').setValue(this.tmp.reqSkills);
         },
      err=>alert("Error")
      );
@@ -102,6 +106,7 @@ export class CreateTrainingComponent implements OnInit {
         formData.append("startTime",(this.createForm.get('startTime').value));
         formData.append("endTime",(this.createForm.get('endTime').value));
         formData.append("createdBy",this.ls.getUserName().fname);
+        formData.append("reqSkills",(this.createForm.get('skillset').value));
       
         let d1:Date =new Date(this.createForm.get('startDate').value);
         let d2:Date =new Date(this.createForm.get('endDate').value);
@@ -130,6 +135,7 @@ export class CreateTrainingComponent implements OnInit {
     training.append("updatedBy",this.ls.getUserName().fname);
     training.append("id",this.id);
     training.append("course.id",(this.createForm.get('course').value));
+    training.append("reqSkills",(this.createForm.get('skillset').value));
     
     let d1:Date =new Date(this.createForm.get('startDate').value);
     let d2:Date =new Date(this.createForm.get('endDate').value);
