@@ -72,6 +72,7 @@ export class CreateTrainingComponent implements OnInit {
         'startTime' : new FormControl(null,[Validators.required]),
         'endTime' : new FormControl(null,[Validators.required]),
      });
+     //ababababab
      let formData:FormData =new FormData();
     
       formData.append("id",this.id);
