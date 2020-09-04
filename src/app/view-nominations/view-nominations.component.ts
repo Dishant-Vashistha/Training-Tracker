@@ -73,6 +73,12 @@ export class ViewNominationsComponent implements OnInit {
       err=>alert("Opps! Error")
     )
  }
+
+ getSkills(data:any):string{
+   console.log(data);
+   return data;
+ }
+
 }
 
 

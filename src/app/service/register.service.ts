@@ -26,6 +26,5 @@ export class RegisterService {
     }catch(err){
       alert("Oops!! Soem error occured")
     }
-    //console.log('Chirag Don');
   }
 }

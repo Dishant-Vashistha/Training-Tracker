@@ -17,12 +17,7 @@ export class HomeComponent implements OnInit {
   categoryNo: any;
   trainingNo:any;
   nominations:any=[];
-  TrainingList:any=[{title:"Java1",id:1,duration:11,startDate:'2020-07-07',endDate:'2020-10-07',st:"2PM",et:"3PM",trainer:"Bobby",status:"Active"}
-  ,{title:"Java2",duration:11,id:1,startDate:'2020-07-07',endDate:'2020-10-07',st:"3PM",et:"4PM",trainer:"Pankaj Vashistha",status:"Not Active"},
-  {title:"Java3",duration:13,id:1,startDate:'2020-04-07',endDate:'2020-06-07',st:"4PM",et:"5PM",trainer:"Jazzy",status:"Active"},
-  {title:"Angular1",duration:12,id:2,startDate:'2020-03-07',endDate:'2020-04-07',st:"1PM",et:"3PM",trainer:"Rama",status:"Active"},
-  {title:"Angular2",duration:11,id:2,startDate:'2020-09-07',endDate:'2020-11-07',st:"2PM",et:"4PM",trainer:"Radhey",status:"Not Active"},
-];
+  TrainingList:any=[];
   constructor(private router:Router,private gs:GetCourseTrainingService,private http:HttpClient ) { }
 
   errorMessage:string="Invalid Login Credentials.";

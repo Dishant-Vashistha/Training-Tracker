@@ -36,9 +36,7 @@
         <th scope="col">TIER</th>
         <th scope="col">Employee Name</th>
         <th scope="col">Employee Email</th>
-        <th scope="col">PrimarySkill</th>
-        <th scope="col">SecondarySkill</th>
-        <th scope="col">BasicJava</th>
+        <th scope="col">Skills</th>
         <th scope="col">ATC</th>
         <th scope="col">Edit Nomination</th>
         <th scope="col"> isShortlisted<input type="checkbox" (click)="selectAll()"></th>
@@ -46,15 +44,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let post of nominations">
-        <!-- <th scope="row">{{i+1}}</th> -->
         <td>{{post.empId}}</td>
-        
         <td>{{post.empTIER}}</td>
         <td>{{post.empName}}</td>
         <td>{{post.empEmail}}</td>
-        <td>{{post.primarySkill}}</td>
-        <td>{{post.secondarySkill}}</td>
-        <td>{{post.basicJava}}</td>
+        <td>{{getSkills(post.relvSkills)}}</td>
         <td>{{post.empATC}}</td>
         <td><button class="btn btn-primary" (click)="onEdit(post.id)">Edit</button></td>
         <td><input class="form-control" type="checkbox" [checked]="isChecked" [value]="post.empId" class='checkboxx'></td>

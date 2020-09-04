@@ -97,6 +97,23 @@
                   <mat-icon matSuffix>lock</mat-icon>
     
                 </mat-form-field>
+                <mat-form-field class="mat2">
+                  <input
+                    matInput
+                    placeholder="Enter Tier"
+                    type="text"
+                    required
+                    formControlName="tier"
+                    name="tier"
+                    >
+                    <mat-error
+                    *ngIf="!signupForm.get('tier').valid && signupForm.get('tier').touched">
+                    Please Enter a Valid Tier
+                  </mat-error>
+                    
+                  <mat-icon matSuffix>perm_identity</mat-icon>
+    
+                </mat-form-field>
             
                 <button
                   mat-raised-button

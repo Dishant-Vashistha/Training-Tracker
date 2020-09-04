@@ -30,12 +30,12 @@ export class EditNominationsComponent implements OnInit {
       this.disableUpdate=false;
       this.Title="Edit";
       this.createForm=new FormGroup({
-        'employeeId' : new FormControl(this.tmp.employeeId,[Validators.required,Validators.pattern("^[0-9 ]*$"),Validators.minLength(7)]),
-        'employeeFullname' :  new FormControl(this.tmp.employeeFullname,[Validators.required]),
-        'employeeMailId' : new FormControl(this.tmp.employeeMailId,[Validators.required]),
-        'primaryskill': new FormControl(this.tmp.employeeMailId,[Validators.required]),
-        'secondaryskill': new FormControl(this.tmp.employeeMailId,[Validators.required]),
-        'Java': new FormControl(this.tmp.Java,[Validators.required])
+        'employeeId' : new FormControl(null,[Validators.required,Validators.pattern("^[0-9 ]*$"),Validators.minLength(7)]),
+        'employeeFullname' :  new FormControl(null,[Validators.required]),
+        'employeeMailId' : new FormControl(null,[Validators.required]),
+        'primaryskill': new FormControl(null,[Validators.required]),
+        'secondaryskill': new FormControl(null,[Validators.required]),
+        'relevantSkillset': new FormControl(null)
      });
       let formData:FormData =new FormData();
     
@@ -48,7 +48,7 @@ export class EditNominationsComponent implements OnInit {
           this.createForm.get('employeeMailId').setValue(this.tmp.empEmail);
           this.createForm.get('primaryskill').setValue(this.tmp.primarySkill);
           this.createForm.get('secondaryskill').setValue(this.tmp.secondarySkill);
-          this.createForm.get('Java').setValue(this.tmp.basicJava);
+          this.createForm.get('relevantSkillset').setValue(this.tmp.relvSkills);
         },
      err=>alert("Error")
      );
@@ -64,9 +64,9 @@ export class EditNominationsComponent implements OnInit {
     course.append("empEmail", this.createForm.get('employeeMailId').value);
     course.append("primarySkill", this.createForm.get('primaryskill').value);
     course.append("secondarySkill", this.createForm.get('secondaryskill').value);
-    course.append("updatedBy",this.ls.username);
+    course.append("updatedBy",this.ls.getUserName().fname);
     course.append("id",this.id);
-    course.append("basicJava",this.createForm.get('Java').value)
+    course.append("relvSkills",this.createForm.get('relevantSkillset').value)
     this.cT.updateNomination(course).subscribe(
       res=>{alert("Updated Successfully")
     this.router.navigate(['/viewnom'])

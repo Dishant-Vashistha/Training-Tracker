@@ -24,7 +24,8 @@ export class SignupComponent implements OnInit {
        'lastName': new FormControl(null,[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
        'phone': new FormControl(null,[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
        'email' :  new FormControl(null,[Validators.required,Validators.email]),
-       'password': new FormControl(null,[Validators.required,Validators.minLength(6)])
+       'password': new FormControl(null,[Validators.required,Validators.minLength(6)]),
+       'tier': new FormControl(null,[Validators.required])
     });
 
   }
@@ -42,7 +43,7 @@ export class SignupComponent implements OnInit {
     formData.append("lastName", this.signupForm.get('lastName').value);
     formData.append("username", this.signupForm.get('username').value);
     formData.append("phone", this.signupForm.get('phone').value);
-        
+    formData.append("tier", this.signupForm.get('tier').value);    
         
     this.rs.register(formData);
     console.log(formData);

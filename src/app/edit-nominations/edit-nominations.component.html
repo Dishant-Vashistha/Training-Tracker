@@ -34,16 +34,13 @@
   </div>
 
   <div class="form-group">
-    <label for="secondaryskill"><b>Secondaryry Skill :</b></label>
-    <input type="text" class="form-control" placeholder="Enter Secondaryry Skill" id="secondaryskill" required formControlName="secondaryskill" name="secondaryskill">
+    <label for="secondaryskill"><b>Secondary Skill :</b></label>
+    <input type="text" class="form-control" placeholder="Enter Secondary Skill" id="secondaryskill" required formControlName="secondaryskill" name="secondaryskill">
   </div>
 
     <div class="form-group">
-    <label for="Java"><b>Java :</b></label>
-    <select name="Java" formControlName="Java">
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
+    <label for="Java"><b>Relevant Skillset :</b></label>
+    <input type="text" class="form-control" placeholder="Enter Relevant Skillset " id="relevantSkillset" required formControlName="relevantSkillset" name="relevantSkillset">
     </div>
 
   <button *ngIf="!disableUpdate" type="submit" class="btn btn-warning" (click)='!todoForm.invalid && onUpdate(todoForm)' >Update</button>
